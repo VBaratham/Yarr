@@ -26,6 +26,7 @@ class Fei4TriggerLoop: public LoopActionBase {
         void setNoInject();
         void setTrigWord(uint32_t word[4]);
         void setNoWord();
+	void setExtTrigger();
 
         //void setIsInner(bool itis=true);
         //bool getIsInner();

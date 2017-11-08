@@ -455,6 +455,9 @@ int main(int argc, char *argv[]) {
         } else if (scanType == "selftrigger_noise") {
             std::cout << "-> Found Selftrigger" << std::endl;
             s = new Fei4Selftrigger(&bookie);
+	} else if (scanType == "exttrigger") {
+	    std::cout << "-> Found ExtTrigger" << std::endl;
+	    s = new Fei4Exttrigger(&bookie);
         } else {
             std::cout << "-> No matching Scan found, possible:" << std::endl;
             listScans();
@@ -502,6 +505,9 @@ int main(int argc, char *argv[]) {
             } else if (scanType == "selftrigger") {
                 fe->histogrammer->addHistogrammer(new DataArchiver((outputDir + "data.raw")));
                 fe->ana->addAlgorithm(new OccupancyAnalysis());
+                fe->ana->getLastAna()->disMasking();
+            } else if (scanType == "exttrigger") {
+                fe->histogrammer->addHistogrammer(new DataArchiver((outputDir + "data.raw")));
                 fe->ana->getLastAna()->disMasking();
             } else if (scanType == "selftrigger_noise") {
                 fe->ana->addAlgorithm(new NoiseAnalysis());
@@ -665,6 +671,7 @@ void listScans() {
     std::cout << "  noisescan" << std::endl;
     std::cout << "  selftrigger" << std::endl;
     std::cout << "  selftrigger_noise" << std::endl;
+    std::cout << "  exttrigger" << std::endl;
 }
 
 

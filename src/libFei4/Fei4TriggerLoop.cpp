@@ -30,7 +30,9 @@ void Fei4TriggerLoop::init() {
         std::cout << __PRETTY_FUNCTION__ << std::endl;
     // Setup Trigger
     this->setTrigDelay(m_trigDelay);
-    if (m_trigCnt > 0) {
+    if (m_extTrigger) {
+        g_tx->setTrigConfig(EXT_TRIGGER);
+    } else if (m_trigCnt > 0) {
         g_tx->setTrigConfig(INT_COUNT);
     } else {
         g_tx->setTrigConfig(INT_TIME);
@@ -171,4 +173,8 @@ void Fei4TriggerLoop::setTrigWord(uint32_t word[4]) {
     m_trigWord[1] = word[1];
     m_trigWord[2] = word[2];
     m_trigWord[3] = word[3];
+}
+
+void Fei4TriggerLoop::setExtTrigger() {
+    m_extTrigger = true;
 }
