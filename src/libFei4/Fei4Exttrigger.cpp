@@ -38,6 +38,8 @@ void Fei4Exttrigger::init() {
 
 // Do necessary pre-scan configuration
 void Fei4Exttrigger::preScan() {
+    unsigned hitDiscCfg = g_fe->getValue(&Fei4::HitDiscCnfg);
+    std::cout << "hitDiscCfg = " << hitDiscCfg << std::endl;
     g_fe->writeRegister(&Fei4::Trig_Lat, 235);
     g_fe->writeRegister(&Fei4::HitOr, 0); // do not trigger on HitOr pulses (GateHitOr)
     g_fe->writeRegister(&Fei4::Trig_Count, 5);
