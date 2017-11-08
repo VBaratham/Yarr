@@ -508,6 +508,7 @@ int main(int argc, char *argv[]) {
                 fe->ana->getLastAna()->disMasking();
             } else if (scanType == "exttrigger") {
                 fe->histogrammer->addHistogrammer(new DataArchiver((outputDir + "data.raw")));
+                fe->ana->addAlgorithm(new OccupancyAnalysis());
                 fe->ana->getLastAna()->disMasking();
             } else if (scanType == "selftrigger_noise") {
                 fe->ana->addAlgorithm(new NoiseAnalysis());

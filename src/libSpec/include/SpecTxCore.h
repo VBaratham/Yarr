@@ -93,7 +93,7 @@ class SpecTxCore : virtual public TxCore, virtual public SpecCom{
         }
         void setTriggerDelay(uint32_t channel, uint32_t delay) {
             if (channel < NCHANNELS) 
-                SpecCom::writeSingle(TRIG_LOGIC_ADR | TRIG_LOGIC_DELAY + channel, delay);
+	      SpecCom::writeSingle((TRIG_LOGIC_ADR | TRIG_LOGIC_DELAY) + channel, delay);
         }
         void setTriggerDeadtime(uint32_t deadtime) {
             SpecCom::writeSingle(TRIG_LOGIC_ADR | TRIG_LOGIC_DEADTIME, deadtime);
