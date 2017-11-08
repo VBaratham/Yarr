@@ -22,7 +22,7 @@ void Fei4Exttrigger::init() {
     triggerLoop->setTrigFreq(triggerFrequency);
     triggerLoop->setTrigTime(triggerTime);
     // triggerLoop->setTrigCnt(0); // Activated time mode
-    triggerLoop->setNoWord(); // Fei4 exttrigger just sends data
+    triggerLoop->setNoInject(); // Fei4 exttrigger just sends data
     triggerLoop->setExtTrigger();
 
     // Loop 2: Data gatherer
