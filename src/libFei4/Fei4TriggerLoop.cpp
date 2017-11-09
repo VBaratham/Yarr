@@ -29,7 +29,6 @@ void Fei4TriggerLoop::init() {
     if (verbose)
         std::cout << __PRETTY_FUNCTION__ << std::endl;
     // Setup Trigger
-    this->setTrigDelay(m_trigDelay);
     if (m_extTrigger) {
         g_tx->setTrigConfig(EXT_TRIGGER);
     } else if (m_trigCnt > 0) {
