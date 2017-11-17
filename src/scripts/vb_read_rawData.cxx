@@ -31,7 +31,7 @@ void eventFromFileBinary(std::fstream &handle,  uint16_t* bcid, uint16_t* l1id,
 
     col.push_back(hit.col);
     row.push_back(hit.row);
-    tot.bush_back(hit.tot);
+    tot.push_back(hit.tot);
   }
 }
 
@@ -65,7 +65,7 @@ void vb_read_rawData(string fn){
 
   while(file) {
     eventFromFileBinary(file);
-    tree.Fill()
+    tree->Fill();
   }
 
   tree->Write();
