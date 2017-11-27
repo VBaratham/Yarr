@@ -503,11 +503,11 @@ int main(int argc, char *argv[]) {
             } else if (scanType == "noisescan") {
                 fe->ana->addAlgorithm(new NoiseAnalysis());
             } else if (scanType == "selftrigger") {
-                fe->histogrammer->addHistogrammer(new DataArchiver((outputDir + "data.raw")));
+	      fe->histogrammer->addHistogrammer(new DataArchiver(outputDir + dynamic_cast<FrontEndCfg*>(fe)->getName() + "_data.raw"));
                 fe->ana->addAlgorithm(new OccupancyAnalysis());
                 fe->ana->getLastAna()->disMasking();
             } else if (scanType == "exttrigger") {
-                fe->histogrammer->addHistogrammer(new DataArchiver((outputDir + "data.raw")));
+	      fe->histogrammer->addHistogrammer(new DataArchiver(outputDir + dynamic_cast<FrontEndCfg*>(fe)->getName() + "_data.raw"));
                 fe->ana->addAlgorithm(new OccupancyAnalysis());
                 fe->ana->getLastAna()->disMasking();
             } else if (scanType == "selftrigger_noise") {
