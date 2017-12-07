@@ -60,6 +60,30 @@ class Fei4Cluster {
             return max-min+1;
         }
 
+        unsigned getMidCol() {
+            int min = 999999;
+            int max = -1;
+            for (unsigned i=0; i<hits.size(); i++) {
+                if (hits[i]->col > max)
+                    max = hits[i]->col;
+                if (hits[i]->col < min)
+                    min = hits[i]->col;
+            }
+            return (max+min)/2;
+        }
+        
+        unsigned getMidRow() {
+            int min = 999999;
+            int max = -1;
+            for (unsigned i=0; i<hits.size(); i++) {
+                if (hits[i]->row > max)
+                    max = hits[i]->row;
+                if (hits[i]->row < min)
+                    min = hits[i]->row;
+            }
+            return (max+min)/2;
+        }
+
         unsigned nHits;
         std::vector<Fei4Hit*> hits;
 };

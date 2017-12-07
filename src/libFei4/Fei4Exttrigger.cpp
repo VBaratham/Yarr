@@ -41,7 +41,7 @@ void Fei4Exttrigger::preScan() {
     unsigned hitDiscCfg = g_fe->getValue(&Fei4::HitDiscCnfg);
 
     // 22 clocks between pulse on ext_trig_i, burst of 5 trigger pulses
-    g_fe->writeRegister(&Fei4::Trig_Lat, 255-(22 + (5/2 + 1) + hitDiscCfg));
+    g_fe->writeRegister(&Fei4::Trig_Lat, 255-(22 + (5/2 + 1) + hitDiscCfg) + 2);
     g_fe->writeRegister(&Fei4::HitOr, 0); // do not trigger on HitOr pulses (GateHitOr off)
     g_fe->writeRegister(&Fei4::Trig_Count, 5);
 
